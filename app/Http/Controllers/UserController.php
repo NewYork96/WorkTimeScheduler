@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate/Support/Facades/Hash;
 
 class UserController extends Controller
 {
@@ -11,15 +12,20 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+       $users = User::all();
+        
+        return view('users/indexUsers', ['users' => $users]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Position $position)
     {
-        //
+         $this -> authorize('create', User::class);
+        $position = Position::all();
+
+        return view('users/createUser', ['position' => $position]);
     }
 
     /**

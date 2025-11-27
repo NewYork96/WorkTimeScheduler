@@ -19,7 +19,7 @@ return new class extends Migration
             $table->double('user_id')->unique();
             $table->date('date_of_birth');
             $table->foreignId('department_id')->nullable()->constrained();
-            $table->string('position');
+            $table->foreignId('position_id');
             $table->foreignId('classification');
             $table->string('password');
             $table->rememberToken();
