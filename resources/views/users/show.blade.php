@@ -31,10 +31,7 @@
                             <th scope="row">{{$user -> name}}</th>
                             <td>{{$user -> email}}</td>
                             <td>{{$user -> phone_number}} </td>
-                            <td>{{$user -> role -> role}}</td>
-                            <td>{{$user -> id_card_number}} </td>
                             <td>
-                               @can('delete', $user)
                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <form action="{{route('users.destroy', $user->id)}}" method="POST">
                                     @csrf
@@ -42,7 +39,6 @@
                                     <button type="submit" class="btn btn-danger me-3">Törlés</button>
                                 </form>
                             </div>
-                               @endcan
                                 <a href="{{route('users.edit', $user->id)}}"><button type="button" class="btn btn-secondary">Módosítás</button></a>
                             </td>
                         </tr>

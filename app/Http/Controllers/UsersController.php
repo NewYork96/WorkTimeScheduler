@@ -12,22 +12,19 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(User $user)
     {
         $users = User::all();
 
-        return view('users.indexUsers', ['users' => $users]);
+        return view('users.index', ['users' => $users]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Position $position)
+    public function create()
     {
-        $this->authorize('create', User::class);
-        $position = Position::all();
-
-        return view('users.createUser', ['position' => $position]);
+        return view('users.create');
     }
 
     /**
@@ -74,9 +71,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $this->authorize('view', $user);
-
-        return view('users.showUser', ['user' => $user]);
+        return view('users.show', ['user' => $user]);
     }
 
     /**
@@ -84,7 +79,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        $user->authorize('update', $user);
+
     }
 
     /**
@@ -97,10 +92,7 @@ class UsersController extends Controller
             'email' => ['required', 'email', Rule::unique('users')],
             'password' => ['required', 'confirmed', 'min:8'],
             'phone_number' => ['required', 'numeric'],
-            'user_id' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
-            'position' => 'required', [Rule::exists('position', 'id')],
-            'department' => 'required', [Rule::exists('department', 'id')],
-            'sclassification' => 'required', [Rule::exists('classification', 'id')],
+            'id' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
         ]);
 
         $user = new User;
@@ -131,7 +123,6 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $this->authorize('delete', User::class);
         $user->delete();
 
         return redirect()->route('users.index');
