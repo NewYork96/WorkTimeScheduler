@@ -32,13 +32,13 @@
                             <td>{{$user -> email}}</td>
                             <td>{{$user -> phone_number}} </td>
                             <td>
-                               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <form action="{{route('users.destroy', $user->id)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger me-3">Törlés</button>
-                                </form>
-                            </div>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <form action="{{route('users.destroy', $user->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger me-3">Törlés</button>
+                                    </form>
+                                </div>
                                 <a href="{{route('users.edit', $user->id)}}"><button type="button" class="btn btn-secondary">Módosítás</button></a>
                             </td>
                         </tr>

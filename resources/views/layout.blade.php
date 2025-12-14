@@ -10,7 +10,7 @@
 
     <title>Példa Tejüzem</title>
   </head>
-  <body class="bg-info">
+  <body class="bg-body">
     
     @yield('header')
     <div class="container">
