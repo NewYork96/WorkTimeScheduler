@@ -38,19 +38,19 @@
             <div class=" mb-2  text-danger fs-6 mx-auto col-6">{{$message}}</div>
         @enderror
         <div class="mb-3 mx-auto col-6">
-            <label for="id_card_number" class="form-label">Szemlyi igazolvány szám</label>
-            <input type="text" class="form-control" id="id_card_number" name="id_card_number"  value="{{old('phone_number')}}">
+            <label for="id_card_number" class="form-label">id_card_number</label>
+            <input type="text" class="form-control" id="id_card_number" name="id_card_number"  value="{{'id_card_number'}}">
         </div>
         @error('id_card_number')
             <div class=" mb-2 text-danger fs-6 mx-auto col-6">{{$message}}</div>
         @enderror
-        <div class="mx-auto col-6">
-            <label for="role" class="form-label">Jogosultság</label>
-            <select id="role" class="form-select" name="role" @foreach ($roles as $role)>
+        {{--<div class="mx-auto col-6">
+            <label for="role" class="form-label">Position</label>
+            <select id="role" class="form-select" name="role" @foreach ($positions as $position)>
                 <option value="{{$role -> id}}">
                     {{$role -> role}}
                 </option>
-                @endforeach>
+                @endforeach>--}}
             </select>
         </div>
         <div class="col-6 mx-auto">

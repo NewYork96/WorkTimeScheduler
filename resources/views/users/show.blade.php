@@ -16,11 +16,11 @@
             <table class="table table-bordered text-center">
                 <thead>
                     <tr>
-                        <th scope="col">Név</th>
-                        <th scope="col">E-mail cím</th>
-                        <th scope="col">Telefonszám</th>
-                        <th scope="col">Jogosultság</th>
-                        <th scope="col">Személyi igazolvány szám</th>
+                        <th scope="col">Number</th>
+                        <th scope="col">E-mail address</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">ID Card Number</th>
+                        <th scope="col">Permission</th>
                         <th scope="col">Funkciók</th>
                     </tr>
                 </thead>
@@ -31,6 +31,7 @@
                             <th scope="row">{{$user -> name}}</th>
                             <td>{{$user -> email}}</td>
                             <td>{{$user -> phone_number}} </td>
+                            <td>{{$user -> id_card_number}} </td>
                             <td>
                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <form action="{{route('users.destroy', $user->id)}}" method="POST">

@@ -37,10 +37,10 @@ class UsersController extends Controller
             'email' => ['required', 'email', Rule::unique('users')],
             'password' => ['required', 'confirmed', 'min:8'],
             'phone_number' => ['required', 'numeric'],
-            'user_id' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
-            'position' => 'required', [Rule::exists('position', 'id')],
+            'id_card_number' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
+          /*'position' => 'required', [Rule::exists('position', 'id')],
             'department' => 'required', [Rule::exists('department', 'id')],
-            'sclassification' => 'required', [Rule::exists('classification', 'id')],
+            'sclassification' => 'required', [Rule::exists('classification', 'id')],*/
         ]);
 
         $user = new User;
@@ -54,13 +54,13 @@ class UsersController extends Controller
         $user->phone_number = $request->phone_number;
 
         $user->id_card_number = $request->id_card_number;
-
+/*
         $user->position_id = $request->position;
 
         $user->department_id = $request->department;
 
         $user->classification_id = $request->classification;
-
+*/
         $user->save();
 
         return redirect(route('users.index'))->with('success', 'Felhasználó sikeresen létrehozva!');
@@ -92,7 +92,7 @@ class UsersController extends Controller
             'email' => ['required', 'email', Rule::unique('users')],
             'password' => ['required', 'confirmed', 'min:8'],
             'phone_number' => ['required', 'numeric'],
-            'id' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
+            'id_card_number' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
         ]);
 
         $user = new User;

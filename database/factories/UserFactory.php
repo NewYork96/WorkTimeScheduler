@@ -28,6 +28,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'date_of_birth' => date('Y-m-d'),
             'password' => static::$password ??= 'password',
+            'id_card_number' => random_int(7800000,78000999),
             'remember_token' => Str::random(10),
             'two_factor_secret' => Str::random(10),
             'two_factor_recovery_codes' => Str::random(10),
