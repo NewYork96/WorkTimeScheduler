@@ -18,8 +18,6 @@
                     <tr>
                         <th scope="col">Név</th>
                         <th scope="col">E-mail cím</th>
-                        <th scope="col">Telefonszám</th>
-                        <th scope="col">Jogosultság</th>
                         <th scope="col">Személyi igazolvány szám</th>
                         <th scope="col">Funkciók</th>
                     </tr>
@@ -30,7 +28,7 @@
                             <a href=""></a>
                             <th scope="row">{{$user -> name}}</th>
                             <td>{{$user -> email}}</td>
-                            <td>{{$user -> phone_number}} </td>
+                            <td>{{ $user ->  id_card_number}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                     <form action="{{route('users.destroy', $user->id)}}" method="POST">
