@@ -32,6 +32,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+/*        
         $request->validate([
             'name' => ['required', 'min:3', 'max:100'],
             'email' => ['required', 'email', Rule::unique('users')],
@@ -40,18 +41,17 @@ class UsersController extends Controller
             'id_card_number' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
           /*'position' => 'required', [Rule::exists('position', 'id')],
             'department' => 'required', [Rule::exists('department', 'id')],
-            'sclassification' => 'required', [Rule::exists('classification', 'id')],*/
-        ]);
-
+            'sclassification' => 'required', [Rule::exists('classification', 'id')],
+*/
         $user = new User;
 
         $user->name = $request->name;
 
         $user->email = $request->email;
 
-        $user->password = Hash::make($request->password);
+        $date_of_birth = $request->date_of_birth;
 
-        $user->phone_number = $request->phone_number;
+        $user->password = Hash::make($request->password);
 
         $user->id_card_number = $request->id_card_number;
 /*
@@ -87,6 +87,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, string $id)
     {
+/*        
         $request->validate([
             'name' => ['required', 'min:3', 'max:100'],
             'email' => ['required', 'email', Rule::unique('users')],
@@ -94,7 +95,7 @@ class UsersController extends Controller
             'phone_number' => ['required', 'numeric'],
             'id_card_number' => ['required', 'regex:/[0-9]{7}/', Rule::unique('users')],
         ]);
-
+*/
         $user = new User;
 
         $user->name = $request->name;
@@ -115,7 +116,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        return redirect(route('users.index'))->with('success', 'Felhasználó sikeresen létrehozva!');
+        return redirect(route('users.index'))->with('success', 'Felhasználó sikeresen módosítva!');
     }
 
     /**
